@@ -4,19 +4,21 @@ import Lightning from "./icons/lightning.png"
 import Dots from "./icons/dots.png" 
 
 export default function App() {
-    const [passwords, setPasswords] = useState([])
+    const [password, setPassword] = useState("")
 
     function generatePassword() {
-        let result = "";
-        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        let charactersLength = characters.length;
-        for ( let j = 0; j < 4; j++) {
+        var results = []
+        for ( let j = 0; j < 4; j++ ) {
+            var result           = ""
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+            var charactersLength = characters.length
             for ( let i = 0; i < 8; i++ ) {
-                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                result += characters.charAt(Math.floor(Math.random() * charactersLength))
             }
-            setPasswords(passwords[j] = result)
+            results[j] = result
         }
-        console.log(passwords)
+        setPassword(results)
+        console.log(password)
     }
 
     return (
@@ -29,10 +31,10 @@ export default function App() {
             <hr />
             <div className="password-wrapper">
                 <div className="passwords">
-                    <p className="password"><img src={Dots} /></p>
-                    <p className="password"><img src={Dots} /></p>
-                    <p className="password"><img src={Dots} /></p>
-                    <p className="password"><img src={Dots} /></p>
+                    <p className="password">{password ? <span>{password[0]}</span> : <img src={Dots} />}</p>
+                    <p className="password"><img src={Dots} />{password[1]}</p>
+                    <p className="password"><img src={Dots} />{password[2]}</p>
+                    <p className="password"><img src={Dots} />{password[3]}</p>
                 </div>
             </div>
         </main>
