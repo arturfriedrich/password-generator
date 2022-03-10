@@ -1,12 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Lightning from "./icons/lightning.png" 
 import Dots from "./icons/dots.png" 
 
 export default function App() {
+    const [passwords, setPasswords] = useState([])
 
     function generatePassword() {
-        
+        let result = "";
+        let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let charactersLength = characters.length;
+        for ( let j = 0; j < 4; j++) {
+            for ( let i = 0; i < 8; i++ ) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            setPasswords(passwords[j] = result)
+        }
+        console.log(passwords)
     }
 
     return (
