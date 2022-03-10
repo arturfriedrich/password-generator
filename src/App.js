@@ -4,12 +4,17 @@ import Lightning from "./icons/lightning.png"
 import Dots from "./icons/dots.png" 
 
 export default function App() {
+
+    function generatePassword() {
+        
+    }
+
     return (
         <main>
             <div className="header">
                 <h1 className="heading">Generate a<br /><span className="highlighted">random password</span></h1>
                 <h2 className="subtitle">Never use an insecure password again</h2>
-                <button className="generate-btn"><img src={Lightning} />Generate passwords</button>
+                <button className="generate-btn" onClick={generatePassword}><img src={Lightning} />Generate passwords</button>
             </div>
             <hr />
             <div className="password-wrapper">
